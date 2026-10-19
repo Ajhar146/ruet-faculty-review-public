@@ -68,6 +68,7 @@ This platform is an independent student transparency initiative. It is not affil
 Database Design (ERD)
 
 The following Entity Relationship Diagram (ERD) illustrates the database structure of the RUET Faculty Review project.
+![RUET Faculty Review Database ERD](./erd.png)
 
 
 
