@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  /* Wipes every default Tailwind colour, so nobody can reach for blue-500. */
+  --color-*: initial;
+
+  /* THE SURFACE COLOUR: cards, inputs, the header, the footer, menus.
+     Everything that sits ON the page. Not the page itself any more. */
+  --color-paper: #ffffff;
+
+  /* THE PAGE ITSELF, and the reason the split exists.
+     --color-paper used to be both, so a white card on a white page had only
+     its 1px border to say where it ended. Now the page is a very light
+     blue-grey and the cards lift off it.
+
+     #F0F4F9 is Google Search Console's own page background, read from its
+     CSS. Its hue is 213 degrees; ink is 218 and slate is 217, so it sits
+     inside this site's own palette rather than reading as a borrowed grey.
+
+     CHANGING THIS CHANGES ONLY THE PAGE. Nothing uses bg-canvas; the body
+     rule below is the single consumer. */
+  --color-canvas: #f0f4f9;
+  --color-ink: #16243d;
+  --color-slate: #5b6b84;
+  --color-line: #e4e7ec;
+  --color-mist: #f7f8fa;
+  --color-accent: #b8860b;
+
+  /* Filled buttons only. Slightly brighter than ink so a button lifts off
+     the page. Never use these for text: ink stays the text colour, because
+     brand on paper is a weaker contrast than ink on paper. */
+  --color-brand: #1e3a6e;
+  --color-brand-hover: #182f5a;
+
+  /* Admin area only. */
+  --color-success: #15803d;
+  --color-danger: #b91c1c;
+
+  --radius-card: 12px;
+  --radius-control: 8px;
+
+  /* 1276px: 1200 plus 76, which is 38px more content on each side. 38px is
+     1cm at 96dpi. Below this width the container is w-full and only the
+     gutter decides the edge, so phones and tablets are unaffected. */
+  --container-page: 1276px;
+
+  /* The only shadow in the system. Dropdowns and modals, nothing else. */
+  --shadow-soft: 0 4px 16px rgba(22, 36, 61, 0.08);
+
+  /* ---------------------------------------------------------------
+     ELEVATION. Three levels, named for WHEN to use them.
+     ---------------------------------------------------------------
+
+     Not shadow-sm / shadow-md / shadow-lg. A size tells you nothing about
+     where it belongs, so a size is how fifteen components end up with five
+     different shadows. Reading the class should answer the question.
+
+     THE COLOUR IS INK, NOT BLACK. rgb(22, 36, 61) is --color-ink. A pure
+     black shadow over a navy-and-white palette goes muddy grey; the page's
+     own darkest colour at a low opacity reads as the light being blocked
+     rather than as a grey smudge painted on. No layer here goes above 8%.
+
+     EACH IS TWO LAYERS, and that is what makes them work at these
+     opacities. A tight contact shadow says the object touches the page; a
+     wider, softer one says how far above it sits. One layer at the same
+     total opacity reads as a blur, not as height.
+
+     NOTHING OUTSIDE THESE THREE. If something seems to need a fourth level,
+     it needs a border or a background instead. See docs/DESIGN-SYSTEM.md
+     section 5. */
+
+  /* A card or an input AT REST. Deliberately on the edge of invisible: you
+     should notice the card has an edge, never notice the shadow. */
+  --shadow-resting:
+    0 1px 2px rgba(22, 36, 61, 0.04), 0 2px 6px rgba(22, 36, 61, 0.04);
+
+  /* HOVER on something interactive. The object lifts; it does not darken.
+     The jump from resting is deliberately small, because the point is that
+     it moved, not that it became dramatic. */
+  --shadow-raised:
+    0 2px 4px rgba(22, 36, 61, 0.05), 0 6px 16px rgba(22, 36, 61, 0.06);
+
+  /* A SHEET OR A DIALOG: the mobile filter sheet, a modal, a dropdown. The
+     only level allowed to be noticeable, because it has to read as being in
+     front of the page rather than part of it. */
+  --shadow-overlay:
+    0 4px 12px rgba(22, 36, 61, 0.06), 0 16px 40px rgba(22, 36, 61, 0.08);
+}
+
+@theme inline {
+  --font-sans: var(--font-jakarta);
+  --font-bn: var(--font-hind);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-jakarta);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.2;
+  }
+}
+
+.bn {
+  font-family: var(--font-bn);
+}
