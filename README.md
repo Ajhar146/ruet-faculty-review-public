@@ -65,6 +65,11 @@ Certain production components are intentionally omitted from this transparency r
 This platform is an independent student transparency initiative. It is not affiliated with, endorsed by, or operated by Rajshahi University of Engineering & Technology (RUET). Reviews represent the individual opinions of student contributors.
 
 ---
+Database Design (ERD)
+
+The following Entity Relationship Diagram (ERD) illustrates the database structure of the RUET Faculty Review project.
+
+
 
 ## Contact
 
