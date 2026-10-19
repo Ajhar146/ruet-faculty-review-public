@@ -72,7 +72,7 @@ The following Entity Relationship Diagram (ERD) illustrates the database structu
 
 ## Website Preview
 
-![RUET Faculty Review Homepage](./screenshots/homepage.jpg)
+![RUET Faculty Review Homepage](./homepage.jpg)
 
 
 
